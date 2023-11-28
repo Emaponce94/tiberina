@@ -68,7 +68,7 @@ function App() {
         <h2 style={{textAlign: 'center'}}>Historial de cálculos</h2>
         {historial.map((item, index) => (
           <div key={index}>
-            <p>Monto: {item.monto}, Porcentaje: {item.porcentaje}, Resultado: {item.resultado}, Mes: {item.mes}, Día: {item.dia}</p>
+            <p>Monto: {item.monto}, Porcentaje: {item.porcentaje}, Resultado: {item.resultado}, Mes: {item.mes}, Nº QUINCENA: {item.QUINCENA}</p>
           </div>
         ))}
       </div>
