@@ -29,6 +29,12 @@ function App() {
     setInputs([...inputs, { label: "Nuevo Item", value: 0 }]);
   };
 
+  const resetearRemunerativos = () => {
+    setMes('');
+    setQuincena('');
+    setInputs(inputs.map(input => ({ label: input.label, value: 0 })));
+  };
+
   const calcular = () => {
     const totalAmount = inputs.reduce((acc, input) => acc + parseFloat(input.value), 0);
     setTotalRemunerativo(totalAmount);
@@ -52,9 +58,6 @@ function App() {
 
   const resetearHistorial = () => {
     setHistorial([]);
-    setResultado(0);
-    setTotalRemunerativo(0);
-    setInputs(inputs.map(input => ({ label: input.label, value: 0 })));
   };
 
   return (
@@ -79,7 +82,8 @@ function App() {
           />
         </div>
       ))}
-      <button onClick={agregarInput} style={{ background: '#2a5298', color: 'white', marginBottom: '10px' }}>Agregar Nuevo Item</button>
+      <button onClick={agregarInput} style={{ background: '#2a5298', color: 'white', marginRight: '5px', marginBottom: '10px' }}>Agregar Nuevo Item</button>
+      <button onClick={resetearRemunerativos} style={{ background: '#2a5298', color: 'white', marginBottom: '10px' }}>Resetear Remunerativos</button>
       <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
         <label style={{ width: '200px', marginRight: '10px', textAlign: 'left' }}>Adic. No Remunerativo (%):</label>
         <input
@@ -120,7 +124,7 @@ function App() {
           style={{ minWidth: '100px' }}
         />
       </div>
-      <button onClick={calcular} style={{ background: '#2a5298', color: 'white', marginBottom: '10px' }}>Calcular</button>
+      <button onClick={calcular} style={{ background: '#2a5298', color: 'white', marginRight: '5px', marginBottom: '10px' }}>Calcular</button>
       <button onClick={resetearHistorial} style={{ background: '#2a5298', color: 'white', marginBottom: '10px' }}>Resetear Historial</button>
       <div style={{ background: 'rgba(255, 255, 255, 0.3)', padding: '10px', borderRadius: '10px', textAlign: 'center', width: 'fit-content', margin: '0 auto' }}>
         <p style={{ fontSize: '1.5em' }}>Ahorro Quincenal: ${resultado.toFixed(2)}</p>
